@@ -1,165 +1,235 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>우리들의 시간 — OOO ♥ OOO</title>
+<meta name="description" content="OOO ♥ OOO의 결혼식에 초대합니다" />
 
-    <title>우리의 결혼식</title>
+<!-- Open Graph : 카카오톡 등으로 공유될 때 보이는 미리보기 -->
+<meta property="og:title" content="우리들의 시간 — OOO ♥ OOO 결혼식에 초대합니다" />
+<meta property="og:description" content="2026년 00월 00일 토요일 낮 12시, OOO웨딩홀" />
+<meta property="og:image" content="assets/img/og-cover.jpg" />
+<meta property="og:type" content="website" />
 
-    <link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
 
-<div class="wrapper">
+<!-- ============ 배경 스테이지 ============ -->
+<div class="stage">
 
+  <main class="invite" id="top">
 
-    <!-- 메인 -->
-    <section class="hero">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <svg class="hero__thread" viewBox="0 0 300 520" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 280 0 C 220 90, 320 180, 240 260 C 170 330, 260 400, 200 520" />
+      </svg>
 
-        <div class="hero-image">
-            <img src="images/main.jpg">
-        </div>
+      <p class="eyebrow" data-reveal>우리들의 시간</p>
+      <h1 class="hero__names" data-reveal>
+        <span>이 신 랑</span>
+        <span class="hero__amp">&amp;</span>
+        <span>김 신 부</span>
+      </h1>
 
-        <div class="hero-text">
-            <h1>
-                우리의<br>
-                특별한 날
-            </h1>
+      <p class="hero__date" data-reveal>
+        <em>2026. 00. 00</em> SAT · 낮 12시
+      </p>
 
-            <p>
-                2026.11.21 SAT
-            </p>
+      <p class="hero__venue" data-reveal>OOO 웨딩홀 3층 그랜드홀</p>
 
-            <p>
-                신랑 ○○○ · 신부 ○○○
-            </p>
-        </div>
-
+      <button class="scroll-cue" id="scrollCue" aria-label="아래로 스크롤">
+        <span></span>
+      </button>
     </section>
 
-
-
-    <!-- 인사말 -->
-    <section class="greeting">
-
-        <h2>Invitation</h2>
-
-        <p>
-            소중한 분들을 모시고<br>
-            새로운 시작을 함께하고자 합니다.
-        </p>
-
+    <!-- ============ 인사말 ============ -->
+    <section class="intro">
+      <p class="intro__text">
+        서로 다른 시간을 살아온 두 사람이<br />
+        같은 방향을 바라보게 되기까지,<br />
+        참 많은 하루들이 있었습니다.<br /><br />
+        이제 그 시간을 하나로 엮어<br />
+        평생을 함께 걸어가려 합니다.<br />
+        저희 두 사람의 시작을 축복해 주세요.
+      </p>
+      <p class="intro__from">이OO · 김OO의 아버지 OOO · 어머니 OOO<br />의 장남 신랑 이OO
+        &nbsp;그리고&nbsp;
+        김OO · 박OO의 딸 신부 김OO</p>
     </section>
 
+    <!-- ============ 타임라인 : 우리들의 시간 ============ -->
+    <section class="timeline" id="timeline">
+      <h2 class="section-title" data-reveal>
+        <span class="section-title__eyebrow">Our Timeline</span>
+        우리가 지나온 시간들
+      </h2>
 
-
-    <!-- 사진 -->
-    <section class="gallery">
-
-        <h2>Gallery</h2>
-
-        <div class="gallery-grid">
-
-            <img src="images/gallery1.jpg">
-            <img src="images/gallery2.jpg">
-            <img src="images/gallery3.jpg">
-
+      <div class="timeline__body" id="timelineBody">
+        <div class="timeline__thread-wrap" aria-hidden="true">
+          <div class="timeline__thread-track"></div>
+          <div class="timeline__thread-fill" id="threadFill"></div>
         </div>
 
+        <ol class="timeline__list" id="timelineList">
+          <!-- JS가 script.js의 TIMELINE 데이터로 이 안을 채웁니다 -->
+        </ol>
+      </div>
+
+      <div class="timeline__knot" data-reveal>
+        <svg viewBox="0 0 60 60" aria-hidden="true">
+          <circle cx="30" cy="30" r="4" />
+        </svg>
+        <p>그리고, 이제 하나의 매듭으로</p>
+      </div>
     </section>
 
+    <!-- ============ 초대 정보 ============ -->
+    <section class="invitation" id="invitation">
+      <h2 class="section-title" data-reveal>
+        <span class="section-title__eyebrow">Invitation</span>
+        저희 결혼식에 초대합니다
+      </h2>
 
+      <div class="invitation__card" data-reveal>
+        <p class="invitation__date-big">2026年 00月 00日</p>
+        <p class="invitation__date-sub">토요일 낮 12시</p>
 
-
-    <!-- 날짜 / 장소 -->
-    <section class="info">
-
-        <h2>Wedding Day</h2>
-
-        <div class="date">
-            2026.11.21<br>
-            PM 2:00
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div class="countdown__item"><span id="cd-days">00</span><em>일</em></div>
+          <div class="countdown__item"><span id="cd-hours">00</span><em>시간</em></div>
+          <div class="countdown__item"><span id="cd-min">00</span><em>분</em></div>
+          <div class="countdown__item"><span id="cd-sec">00</span><em>초</em></div>
         </div>
+        <p class="countdown__label">신랑 신부와 만나기까지</p>
+      </div>
 
-
-        <div class="location">
-
-            <h3>
-                ○○웨딩홀
-            </h3>
-
-            <p>
-                서울특별시 ○○구 ○○로
-            </p>
-
-        </div>
-
+      <div class="calendar" data-reveal>
+        <!-- 실제 사용 시 JS의 WEDDING_DATE 값에 맞게 아래 표시가 자동 계산됩니다 -->
+        <div class="calendar__grid" id="calendarGrid"></div>
+      </div>
     </section>
 
+    <!-- ============ 오시는 길 ============ -->
+    <section class="location" id="location">
+      <h2 class="section-title" data-reveal>
+        <span class="section-title__eyebrow">Location</span>
+        오시는 길
+      </h2>
 
+      <div class="location__map" data-reveal>
+        <!-- 지도 API 키가 없어도 되도록 정적 이미지/버튼 방식으로 구성했습니다.
+             실제 서비스 시 아래 map-frame에 원하는 지도 iframe을 넣어도 됩니다. -->
+        <div class="location__map-fallback">
+          <p>OOO 웨딩홀</p>
+          <span>서울특별시 OO구 OO로 000</span>
+        </div>
+      </div>
 
-    <!-- 지도 -->
-    <section class="map">
+      <div class="location__buttons" data-reveal>
+        <a class="btn btn--map" href="https://map.naver.com/p/search/OOO웨딩홀" target="_blank" rel="noopener">네이버지도</a>
+        <a class="btn btn--map" href="https://map.kakao.com/?q=OOO웨딩홀" target="_blank" rel="noopener">카카오맵</a>
+        <a class="btn btn--map" href="https://map.google.com/?q=OOO웨딩홀" target="_blank" rel="noopener">구글지도</a>
+      </div>
 
+      <dl class="location__info" data-reveal>
         <div>
-            MAP 영역
+          <dt>지하철</dt>
+          <dd>OO호선 OO역 3번 출구에서 도보 5분</dd>
         </div>
-
+        <div>
+          <dt>버스</dt>
+          <dd>OOO, OOO번 · 'OO역' 정류장 하차</dd>
+        </div>
+        <div>
+          <dt>자가용</dt>
+          <dd>내비게이션 'OOO웨딩홀' 검색 · 건물 내 지하주차장 3시간 무료</dd>
+        </div>
+      </dl>
     </section>
 
+    <!-- ============ 마음 전하실 곳 ============ -->
+    <section class="gift" id="gift">
+      <h2 class="section-title" data-reveal>
+        <span class="section-title__eyebrow">Gift</span>
+        마음 전하실 곳
+      </h2>
+      <p class="gift__desc" data-reveal>
+        참석이 어려우신 분들을 위해<br class="mobile-only" />
+        계좌번호를 안내드립니다.
+      </p>
 
-
-    <!-- 계좌 -->
-    <section class="account">
-
-        <h2>마음 전하실 곳</h2>
-
-
-        <div class="account-box">
-
-            <p>
-                신랑측
-            </p>
-
-            <p>
-                국민은행 000-000-000
-            </p>
-
+      <div class="accordion" data-reveal>
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>신랑측</span>
+            <i></i>
+          </button>
+          <div class="accordion__panel">
+            <div class="account">
+              <div class="account__row">
+                <p><strong>이OO</strong> (신랑)<br /><span>OO은행 000-0000-0000</span></p>
+                <button class="btn-copy" data-copy="000-0000-0000">복사</button>
+              </div>
+              <div class="account__row">
+                <p><strong>OOO</strong> (아버지)<br /><span>OO은행 000-0000-0000</span></p>
+                <button class="btn-copy" data-copy="000-0000-0000">복사</button>
+              </div>
+              <div class="account__row">
+                <p><strong>OOO</strong> (어머니)<br /><span>OO은행 000-0000-0000</span></p>
+                <button class="btn-copy" data-copy="000-0000-0000">복사</button>
+              </div>
+            </div>
+          </div>
         </div>
 
-
-        <div class="account-box">
-
-            <p>
-                신부측
-            </p>
-
-            <p>
-                국민은행 000-000-000
-            </p>
-
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>신부측</span>
+            <i></i>
+          </button>
+          <div class="accordion__panel">
+            <div class="account">
+              <div class="account__row">
+                <p><strong>김OO</strong> (신부)<br /><span>OO은행 000-0000-0000</span></p>
+                <button class="btn-copy" data-copy="000-0000-0000">복사</button>
+              </div>
+              <div class="account__row">
+                <p><strong>OOO</strong> (아버지)<br /><span>OO은행 000-0000-0000</span></p>
+                <button class="btn-copy" data-copy="000-0000-0000">복사</button>
+              </div>
+              <div class="account__row">
+                <p><strong>OOO</strong> (어머니)<br /><span>OO은행 000-0000-0000</span></p>
+                <button class="btn-copy" data-copy="000-0000-0000">복사</button>
+              </div>
+            </div>
+          </div>
         </div>
-
-
+      </div>
     </section>
 
-
-
-    <!-- footer -->
-    <footer>
-
-        <p>
-            함께해주셔서 감사합니다.
-        </p>
-
+    <!-- ============ 마무리 ============ -->
+    <footer class="closing">
+      <svg class="closing__knot" viewBox="0 0 120 60" aria-hidden="true">
+        <path d="M10 30 C 30 5, 50 55, 60 30 C 70 5, 90 55, 110 30" />
+        <circle cx="60" cy="30" r="3.5" />
+      </svg>
+      <p class="closing__text">저희 두 사람이 함께할 시간의<br />첫 페이지에 함께해 주셔서 감사합니다.</p>
+      <p class="closing__sign">이신랑 &nbsp;&amp;&nbsp; 김신부 드림</p>
+      <a class="closing__top" href="#top">맨 위로</a>
     </footer>
 
-
+  </main>
 </div>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="js/script.js"></script>
-
 </body>
 </html>
