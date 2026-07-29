@@ -1,0 +1,221 @@
+*{
+    box-sizing:border-box;
+}
+
+
+body{
+
+    margin:0;
+    font-family:
+    "Pretendard",
+    sans-serif;
+
+    background:#faf7f2;
+
+    color:#333;
+
+}
+
+
+
+.wrapper{
+
+    width:100%;
+    max-width:600px;
+
+    margin:auto;
+
+    background:white;
+
+}
+
+
+
+/* 공통 */
+
+section{
+
+    padding:80px 30px;
+
+    text-align:center;
+
+}
+
+
+
+
+/* 첫 화면 */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+
+.hero-image img{
+
+    width:100%;
+
+    border-radius:5px;
+
+}
+
+
+
+.hero-text{
+
+    margin-top:40px;
+
+}
+
+
+.hero-text h1{
+
+    font-size:42px;
+
+    line-height:1.3;
+
+    font-weight:400;
+
+}
+
+
+
+.hero-text p{
+
+    margin-top:20px;
+
+}
+
+
+
+
+
+/* 소개 */
+
+.greeting{
+
+    background:#faf7f2;
+
+}
+
+
+h2{
+
+    font-size:28px;
+
+    font-weight:400;
+
+    margin-bottom:40px;
+
+}
+
+
+
+/* 갤러리 */
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+
+}
+
+
+
+.gallery-grid img{
+
+    width:100%;
+
+}
+
+
+
+
+
+/* 정보 */
+
+.info{
+
+    background:#faf7f2;
+
+}
+
+
+
+.date{
+
+    font-size:24px;
+
+    line-height:1.8;
+
+    margin-bottom:50px;
+
+}
+
+
+
+.location{
+
+    margin-top:20px;
+
+}
+
+
+
+
+/* 지도 */
+
+.map{
+
+    height:300px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#eee;
+
+}
+
+
+
+/* 계좌 */
+
+.account-box{
+
+    padding:20px;
+
+    border:1px solid #ddd;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+footer{
+
+    padding:50px 20px;
+
+    text-align:center;
+
+    background:#333;
+
+    color:white;
+
+}
