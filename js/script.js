@@ -27,7 +27,7 @@ const TIMELINE = [
     date: "2020. 06",
     title: "첫 데이트",
     desc: "동네 작은 카페에서 세 시간을 이야기하고도 아쉬워했던 날.",
-    photo: "assets/img/2020.jpg",
+    photo: "assets/img/2023.jpg",
   },
   {
     year: "2022",
