@@ -27,7 +27,7 @@ const TIMELINE = [
     date: "2020. 06",
     title: "첫 데이트",
     desc: "동네 작은 카페에서 세 시간을 이야기하고도 아쉬워했던 날.",
-    photo: "assets/img/2023.jpg",
+    photo: "assets/img/2020.jpg",
   },
   {
     year: "2022",
@@ -56,6 +56,7 @@ const TIMELINE = [
    내부 로직 — 아래부터는 수정하지 않아도 됩니다.
    ======================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
+  setupHeroPhoto();
   renderTimeline();
   setupRevealObserver();
   setupThreadFill();
@@ -65,6 +66,23 @@ document.addEventListener("DOMContentLoaded", () => {
   setupAccordion();
   setupCopyButtons();
 });
+
+/* ---------------------------- 메인 웨딩 사진 ---------------------------- */
+function setupHeroPhoto() {
+  const photo = document.getElementById("heroPhoto");
+  if (!photo) return;
+  const img = photo.querySelector("img");
+  watchImage(img, () => photo.classList.add("no-image"));
+}
+
+/* 이미지가 이미(리스너 등록 전에) 로드에 실패한 경우까지 포함해 감지 */
+function watchImage(img, onFail) {
+  if (img.complete) {
+    if (img.naturalWidth === 0) onFail();
+    return;
+  }
+  img.addEventListener("error", onFail);
+}
 
 /* ---------------------------- 타임라인 렌더링 ---------------------------- */
 function renderTimeline() {
@@ -88,9 +106,7 @@ function renderTimeline() {
 
   // 이미지가 없을 때 플레이스홀더 표시
   list.querySelectorAll(".timeline__photo img").forEach((img) => {
-    img.addEventListener("error", () => {
-      img.closest(".timeline__photo").classList.add("no-image");
-    });
+    watchImage(img, () => img.closest(".timeline__photo").classList.add("no-image"));
   });
 }
 
