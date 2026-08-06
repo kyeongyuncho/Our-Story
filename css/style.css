@@ -142,15 +142,17 @@ a { color: inherit; }
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 100svh;
+  min-height: 560px;
   overflow: hidden;
 }
 
-/* -- 메인 웨딩 사진 -- */
+/* -- 메인 웨딩 사진 (화면 상단 약 74%, 메인 느낌 강조) -- */
 .hero__photo {
   position: relative;
   margin: 0;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  flex: 0 0 74%;
   background: linear-gradient(160deg, #ddd2bd, #c7b89c);
   overflow: hidden;
 }
@@ -178,93 +180,108 @@ a { color: inherit; }
 }
 .hero__photo.no-image img { display: none; }
 
-/* -- 사진 아래 텍스트 -- */
+/* -- 사진 아래 텍스트, 2줄로 압축 (나머지 약 26%) -- */
 .hero__content {
   position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 40px 32px 28px;
+  padding: 8px 24px 10px;
+  min-height: 0;
 }
 
+/* -- 우측 상단에서 내려오는 붉은 실 (사진+텍스트 전체를 관통) -- */
 .hero__thread {
-  display: block;
-  width: 22px;
-  height: 50px;
-  margin: 0 auto 18px;
+  position: absolute;
+  top: 0;
+  right: 4%;
+  width: 38%;
+  height: 74%;
+  pointer-events: none;
+  z-index: 5;
 }
-.hero__thread path {
+.hero__thread-glow,
+.hero__thread-line {
   fill: none;
-  stroke: var(--thread);
-  stroke-width: 2;
   stroke-linecap: round;
-  stroke-dasharray: 220;
-  stroke-dashoffset: 220;
-  animation: draw-thread 1.4s 0.2s cubic-bezier(.65,0,.35,1) forwards;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: draw-thread 2s 0.25s cubic-bezier(.65,0,.35,1) forwards;
+}
+.hero__thread-glow {
+  stroke: rgba(255,250,240,0.65);
+  stroke-width: 10;
+  filter: blur(2px);
+}
+.hero__thread-line {
+  stroke: var(--thread);
+  stroke-width: 3.5;
+}
+.hero__thread-knot {
+  fill: var(--thread);
+  opacity: 0;
+  animation: knot-in 0.4s 2.15s ease forwards;
 }
 @keyframes draw-thread {
   to { stroke-dashoffset: 0; }
 }
+@keyframes knot-in {
+  to { opacity: 1; }
+}
 
-.eyebrow {
+/* 1줄 : 우리들의 시간 + 이름 */
+.hero__line1 {
+  margin: 0 0 6px;
+  white-space: nowrap;
+}
+.hero__eyebrow-inline {
   font-family: var(--font-accent);
   font-style: italic;
-  font-size: 14px;
-  letter-spacing: 0.3em;
+  font-size: 11px;
+  letter-spacing: 0.2em;
   color: var(--gold);
   text-transform: uppercase;
-  margin: 0 0 22px;
+  margin-right: 10px;
 }
-
-.hero__names {
+.hero__names-inline {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 34px;
-  line-height: 1.6;
-  letter-spacing: 0.14em;
-  margin: 0 0 26px;
+  font-size: 17px;
+  letter-spacing: 0.04em;
   color: var(--ink);
 }
-.hero__names span { display: block; }
-.hero__amp {
-  font-family: var(--font-accent);
-  font-style: italic;
-  font-size: 20px;
-  color: var(--thread);
-  letter-spacing: 0;
-  margin: 6px 0;
-}
 
-.hero__date {
+/* 2줄 : 날짜 + 시간 */
+.hero__line2 {
+  margin: 0;
   font-family: var(--font-body);
-  font-size: 14px;
-  letter-spacing: 0.08em;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
   color: var(--ink-soft);
-  margin: 0 0 6px;
+  white-space: nowrap;
 }
-.hero__date em {
+.hero__line2 em {
   font-family: var(--font-accent);
   font-style: normal;
-  font-size: 20px;
+  font-size: 15px;
   color: var(--ink);
-  letter-spacing: 0.05em;
-  margin-right: 6px;
-}
-
-.hero__venue {
-  font-size: 13px;
-  color: var(--ink-faint);
-  margin: 0;
   letter-spacing: 0.04em;
+  margin-right: 6px;
 }
 
 .scroll-cue {
   display: block;
-  width: 24px;
-  height: 36px;
-  margin: 4px auto 0;
+  width: 18px;
+  height: 20px;
+  margin: 8px auto 0;
   border: none;
   background: transparent;
   cursor: pointer;
   padding: 0;
+  flex-shrink: 0;
 }
 .scroll-cue span {
   display: block;
