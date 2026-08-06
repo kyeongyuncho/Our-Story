@@ -152,7 +152,7 @@ a { color: inherit; }
   position: relative;
   margin: 0;
   width: 100%;
-  flex: 0 0 74%;
+  flex: 0 0 80%;
   background: linear-gradient(160deg, #ddd2bd, #c7b89c);
   overflow: hidden;
 }
